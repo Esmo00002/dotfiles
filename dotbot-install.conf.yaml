@@ -1,0 +1,56 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      #force: true
+
+- create:
+    - ~/.config
+    - ~/.config/autostart
+    - /etc/xdg/autostart
+
+- shell:
+   - [git submodule update --init --recursive --remote, Installing/Updating submodules]
+   - [ln -s ~/.local/share/Trash ~/.trash, Creating symlink to trash in home folder]
+   #- [sudo chsh -s $(which zsh), Making zsh the default shell]
+
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
+
+- link:
+    ~/.dotfiles: ''
+    ~/.tmux.conf: home/.tmux.conf
+    ~/.gitignore_global: home/.gitignore_global
+    ~/.config/alacritty: home/.config/alacritty/
+    ~/.config/git: home/.config/git/
+    ~/.config/neofetch: home/.config/neofetch/
+    ~/.config/VSCodium/User/settings.json: home/.config/VSCodium/User/settings.json
+    ~/.config/VSCodium/User/keybindings.json: home/.config/VSCodium/User/keybindings.json
+    ~/.config/ranger: home/.config/ranger/
+    ~/.config/tig: home/.config/tig/
+    ~/.config/paru: home/.config/paru/
+    ~/.config/zsh/.zshrc: home/.config/zsh/.zshrc
+    ~/.config/zsh/.zprofile: home/.config/zsh/.zprofile
+    ~/.config/zsh/.p10k.zsh: home/.config/zsh/.p10k.zsh
+    ~/.config/zsh/.oh-my-zsh/custom/custom_aliases.zsh: home/.config/zsh/.oh-my-zsh/custom/custom_aliases.zsh
+    ~/.config/zsh/.oh-my-zsh/custom/shortcuts.zsh: home/.config/zsh/.oh-my-zsh/custom/shortcuts.zsh
+    ~/.config/touchcursor: home/.config/touchcursor/
+    ~/.config/nvim/general: home/.config/nvim/general/
+    ~/.config/nvim/keys: home/.config/nvim/keys/
+    ~/.config/nvim/vim-plug: home/.config/nvim/vim-plug/
+    ~/.config/nvim/init.vim: home/.config/nvim/init.vim
+    ~/.config/nvim/coc-settings.json: home/.config/nvim/coc-settings.json
+    ~/.config/lazygit/config.yml: home/.config/lazygit/config.yml
+    ~/.config/doom: home/.config/doom
+    ~/.config/glow: home/.config/glow
+    ~/.config/systemd/user/radicale.service: home/.config/systemd/user/radicale.service
+    ~/.config/thefuck/settings.py: home/.config/thefuck/settings.py
+    ~/.config/thefuck/rules: home/.config/thefuck/rules
+    ~/.config/mpv/input.conf: home/.config/mpv/input.conf
+    ~/.ssh/config: home/.ssh/config
+    ~/.config/helix: home/.config/helix
+
+- shell:
+   - [systemctl --user enable radicale.service, Enabling and starting Radicale DecSync service]

@@ -1,0 +1,4 @@
+- move ssh config to private dotfiles repo
+- write my own newpage for browser in HTML and CSS, point to this local file in a dotfiles repo my browser
+- Is it in chromium, too? `chrome://flags/#enable-force-dark`
+- yt-dlp, youtube-dl-gui by oleksis 
